@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getProduct } from "@/app/actions/product";
 
+export const dynamic = 'force-dynamic';
+
 export default async function EditProductPage({ params }) {
   const { id } = await params;
   const product = await getProduct(id);

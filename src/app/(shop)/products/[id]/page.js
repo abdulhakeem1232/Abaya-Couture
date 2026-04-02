@@ -5,10 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import ProductActions from "./ProductActions";
 import ProductGallery from "./ProductGallery";
 
-export async function generateStaticParams() {
-  const products = await getProducts();
-  return products.map((p) => ({ id: p._id.toString() }));
-}
+export const dynamic = 'force-dynamic';
 
 export default async function ProductDetailPage({ params }) {
   const { id } = await params;

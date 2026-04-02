@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Edit } from "lucide-react";
 import DeleteProductButton from "./components/DeleteProductButton";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
   const products = await getProducts();
 
