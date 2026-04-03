@@ -24,7 +24,7 @@ export default async function ProductsPage() {
             </div>
             <div className="text-center">
               <h3 className="text-base font-serif font-semibold text-accent mb-1 truncate">{product.name}</h3>
-              <p className="text-primary font-medium tracking-wide">₹{product.price.toFixed(2)}</p>
+              <p className="text-primary font-medium tracking-wide">₹{product.price}</p>
             </div>
           </Link>
         ))}

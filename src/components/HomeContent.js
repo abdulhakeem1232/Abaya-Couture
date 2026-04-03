@@ -103,11 +103,11 @@ export default function HomeContent({ products }) {
                   <div className="flex items-center justify-center gap-3">
                     {product.discountPrice ? (
                       <>
-                        <p className="text-primary font-bold tracking-wide">₹{product.discountPrice.toFixed(2)}</p>
-                        <p className="text-gray-400 text-sm font-medium line-through">₹{product.price.toFixed(2)}</p>
+                        <p className="text-primary font-bold tracking-wide">₹{product.discountPrice}</p>
+                        <p className="text-gray-400 text-sm font-medium line-through">₹{product.price}</p>
                       </>
                     ) : (
-                      <p className="text-primary font-medium tracking-wide">₹{product.price.toFixed(2)}</p>
+                      <p className="text-primary font-medium tracking-wide">₹{product.price}</p>
                     )}
                   </div>
                 </div>

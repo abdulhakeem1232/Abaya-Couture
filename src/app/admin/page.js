@@ -18,7 +18,7 @@ export default async function AdminDashboard() {
         </Link>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-100 text-sm text-gray-500 uppercase tracking-wider">
@@ -47,11 +47,11 @@ export default async function AdminDashboard() {
                 <td className="p-5 font-medium text-gray-700">
                   {product.discountPrice ? (
                     <div>
-                      <span className="text-primary font-bold">₹{product.discountPrice.toFixed(2)}</span>
-                      <span className="text-gray-400 text-sm line-through ml-2">₹{product.price.toFixed(2)}</span>
+                      <span className="text-primary font-bold">₹{product.discountPrice}</span>
+                      <span className="text-gray-400 text-sm line-through ml-2">₹{product.price}</span>
                     </div>
                   ) : (
-                    <span>₹{product.price.toFixed(2)}</span>
+                    <span>₹{product.price}</span>
                   )}
                 </td>
                 <td className="p-5">

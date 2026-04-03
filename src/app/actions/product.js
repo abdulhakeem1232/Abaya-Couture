@@ -36,24 +36,15 @@ async function saveImages(formData) {
   }
 
   const uploadedPaths = [];
-  const uploadDir = path.join(process.cwd(), "public", "uploads");
-
-  try {
-    await mkdir(uploadDir, { recursive: true });
-  } catch (err) {
-    if (err.code !== 'EEXIST') throw err;
-  }
 
   for (const image of images) {
     if (image instanceof File && image.size > 0) {
       const bytes = await image.arrayBuffer();
       const buffer = Buffer.from(bytes);
       
-      const filename = `${Date.now()}-${image.name.replace(/\s+/g, "-")}`;
-      const filePath = path.join(uploadDir, filename);
-      
-      await writeFile(filePath, buffer);
-      uploadedPaths.push(`/uploads/${filename}`);
+      const base64 = buffer.toString('base64');
+      const mimeType = image.type || 'image/jpeg';
+      uploadedPaths.push(`data:${mimeType};base64,${base64}`);
     }
   }
   return uploadedPaths;
@@ -65,13 +56,21 @@ export async function createProduct(formData) {
   
   const images = await saveImages(formData);
 
-  const discountPrice = formData.get("discountPrice");
+  const rawPrice = Number(formData.get("price"));
+  const price = Math.round(rawPrice);
+  
+  const rawDiscount = formData.get("discountPrice");
+  const discountPrice = rawDiscount ? Math.round(Number(rawDiscount)) : null;
+
+  if (discountPrice !== null && discountPrice > price) {
+    throw new Error("Discount price cannot be more than actual price");
+  }
 
   const newProduct = await Product.create({
     name: formData.get("name"),
     description: formData.get("description"),
-    price: Number(formData.get("price")),
-    discountPrice: discountPrice ? Number(discountPrice) : null,
+    price: price,
+    discountPrice: discountPrice,
     images: images,
     category: formData.get("category") || 'Abaya',
   });
@@ -91,13 +90,21 @@ export async function updateProduct(id, formData) {
   
   const finalImages = [...keepImages, ...newImages];
 
-  const discountPrice = formData.get("discountPrice");
+  const rawPrice = Number(formData.get("price"));
+  const price = Math.round(rawPrice);
+  
+  const rawDiscount = formData.get("discountPrice");
+  const discountPrice = rawDiscount ? Math.round(Number(rawDiscount)) : null;
+
+  if (discountPrice !== null && discountPrice > price) {
+    throw new Error("Discount price cannot be more than actual price");
+  }
 
   const updated = await Product.findByIdAndUpdate(id, {
     name: formData.get("name"),
     description: formData.get("description"),
-    price: Number(formData.get("price")),
-    discountPrice: discountPrice ? Number(discountPrice) : null,
+    price: price,
+    discountPrice: discountPrice,
     images: finalImages,
     category: formData.get("category") || 'Abaya',
   }, { new: true });

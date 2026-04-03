@@ -75,11 +75,11 @@ export default function CartPage() {
                     <h3 className="font-serif font-semibold text-accent text-lg">{item.name}</h3>
                     {item.discountPrice ? (
                       <div className="mt-0.5 flex items-center gap-2">
-                        <p className="text-primary font-bold">₹{item.discountPrice.toFixed(2)}</p>
-                        <p className="text-gray-400 text-sm line-through">₹{item.price.toFixed(2)}</p>
+                        <p className="text-primary font-bold">₹{item.discountPrice}</p>
+                        <p className="text-gray-400 text-sm line-through">₹{item.price}</p>
                       </div>
                     ) : (
-                      <p className="text-primary font-medium mt-0.5">₹{item.price.toFixed(2)}</p>
+                      <p className="text-primary font-medium mt-0.5">₹{item.price}</p>
                     )}
                   </div>
                   <div className="flex items-center justify-between mt-3">
@@ -125,7 +125,7 @@ export default function CartPage() {
             <div className="space-y-4 text-sm">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
-                <span className="font-medium">₹{cartTotal.toFixed(2)}</span>
+                <span className="font-medium">₹{cartTotal}</span>
               </div>
               <div className="flex justify-between text-gray-600">
                 <span>Shipping</span>
@@ -133,11 +133,11 @@ export default function CartPage() {
               </div>
               <div className="border-t border-gray-100 pt-4 flex justify-between text-base font-semibold text-accent">
                 <span>Total</span>
-                <span>₹{cartTotal.toFixed(2)}</span>
+                <span>₹{cartTotal}</span>
               </div>
             </div>
             <a 
-              href={`https://wa.me/916364208033?text=${encodeURIComponent(`Hello Abaya Couture! I want to order the following items from my bag:\n\n${cart.map(i => `- ${i.name} (Qty: ${i.quantity})`).join('\n')}\n\nTotal: ₹${cartTotal.toFixed(2)}`)}`}
+              href={`https://wa.me/916364208033?text=${encodeURIComponent(`Hello Abaya Couture! I want to order the following items from my bag:\n\n${cart.map(i => `- ${i.name} (Qty: ${i.quantity})`).join('\n')}\n\nTotal: ₹${cartTotal}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full mt-6 bg-[#25D366] hover:bg-[#1ebd5a] text-white py-3.5 rounded-full flex items-center justify-center gap-2 transition duration-300 font-medium text-sm tracking-wide shadow-lg shadow-[#25D366]/20"

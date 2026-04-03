@@ -17,6 +17,14 @@ export default function ProductForm({ initialData = null }) {
     const formData = new FormData(e.target);
     formData.append("existingImages", JSON.stringify(existingImages));
 
+    const price = Number(formData.get("price"));
+    const discountPrice = formData.get("discountPrice");
+    if (discountPrice && Number(discountPrice) > price) {
+      toast.error("Discount price cannot be more than actual price");
+      setLoading(false);
+      return;
+    }
+
     try {
       if (initialData) {
         await updateProduct(initialData._id, formData);
@@ -60,11 +68,11 @@ export default function ProductForm({ initialData = null }) {
       <div className="grid grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Price (₹)</label>
-          <input name="price" type="number" step="0.01" defaultValue={initialData?.price} required className="w-full px-4 py-2 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="0.00" />
+          <input name="price" type="number" step="1" min="0" defaultValue={initialData?.price} required className="w-full px-4 py-2 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="0" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Discount Price (₹)</label>
-          <input name="discountPrice" type="number" step="0.01" defaultValue={initialData?.discountPrice} className="w-full px-4 py-2 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="0.00 (Optional)" />
+          <input name="discountPrice" type="number" step="1" min="0" defaultValue={initialData?.discountPrice} className="w-full px-4 py-2 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="0 (Optional)" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>

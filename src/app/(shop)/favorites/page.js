@@ -93,7 +93,14 @@ export default function FavoritesPage() {
                     {product.name}
                   </h3>
                 </Link>
-                <p className="text-primary font-medium mt-1">₹{product.price.toFixed(2)}</p>
+                {product.discountPrice ? (
+                  <div className="flex gap-2 items-center mt-1">
+                    <p className="text-primary font-bold">₹{product.discountPrice}</p>
+                    <p className="text-gray-400 text-sm line-through">₹{product.price}</p>
+                  </div>
+                ) : (
+                  <p className="text-primary font-medium mt-1">₹{product.price}</p>
+                )}
                 <button
                   onClick={() => handleAddToCart(product)}
                   className="w-full mt-4 bg-accent hover:bg-black text-white py-2.5 rounded-full transition duration-300 font-medium text-sm flex items-center justify-center gap-2"
