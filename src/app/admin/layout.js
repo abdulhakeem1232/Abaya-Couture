@@ -23,9 +23,6 @@ export default function AdminLayout({ children }) {
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             <h1 className="text-xl font-serif font-bold text-primary">Abaya Couture Admin</h1>
             <div className="flex items-center gap-4">
-              <a href="/" className="text-sm font-medium text-gray-500 hover:text-gray-900 transition">
-                View Site
-              </a>
               <button
                 onClick={handleLogout}
                 className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-red-600 transition px-3 py-1.5 rounded-lg hover:bg-red-50"

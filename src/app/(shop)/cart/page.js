@@ -6,6 +6,7 @@ import { useCart } from "@/context/CartContext";
 import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
+import { toast } from "sonner";
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, clearCart, cartTotal, cartCount, loaded } = useCart();
@@ -103,9 +104,8 @@ export default function CartPage() {
                     </div>
                     <button
                       onClick={() => {
-                        if (window.confirm("Are you sure you want to remove this item from your bag?")) {
-                          removeFromCart(item._id);
-                        }
+                        removeFromCart(item._id);
+                        toast.success("Removed from bag");
                       }}
                       className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition"
                     >

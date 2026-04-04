@@ -6,6 +6,7 @@ import { useFavorites } from "@/context/FavoritesContext";
 import { useCart } from "@/context/CartContext";
 import { Heart, ShoppingBag, X, ArrowLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 
 export default function FavoritesPage() {
   const { favorites, removeFromFavorites, loaded } = useFavorites();
@@ -78,9 +79,8 @@ export default function FavoritesPage() {
                 </Link>
                 <button
                   onClick={() => {
-                    if (window.confirm("Are you sure you want to remove this from your wishlist?")) {
-                      removeFromFavorites(product._id);
-                    }
+                    removeFromFavorites(product._id);
+                    toast.success("Removed from wishlist");
                   }}
                   className="absolute top-3 right-3 w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-500 hover:text-red-500 hover:bg-red-50 transition shadow-sm"
                 >

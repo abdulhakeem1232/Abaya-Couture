@@ -11,9 +11,9 @@ export default async function AdminDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <h2 className="text-2xl font-serif font-bold text-gray-800">Products Overview</h2>
-        <Link href="/admin/products/new" className="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-lg transition font-medium text-sm">
+        <Link href="/admin/products/new" className="bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-lg transition font-medium text-sm text-center w-full sm:w-auto">
           + Add New Product
         </Link>
       </div>

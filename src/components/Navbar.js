@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="hidden md:flex gap-8 text-sm font-medium text-gray-700 tracking-wide uppercase">
           <Link href="/" className="hover:text-primary transition duration-300">Home</Link>
           <Link href="/products" className="hover:text-primary transition duration-300">Shop Collection</Link>
-          <Link href="#" className="hover:text-primary transition duration-300">About Us</Link>
+          <Link href="/about" className="hover:text-primary transition duration-300">About Us</Link>
         </div>
 
         <div className="flex items-center gap-6">

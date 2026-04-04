@@ -16,17 +16,11 @@ export default function Footer() {
             Elevate your modesty with our premium collection of luxury Abayas, designed for the modern woman who embraces elegance and grace. Experience timeless luxury in every thread.
           </p>
           <div className="flex items-center gap-5">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition group">
+            <a href="https://www.instagram.com/abaya_.couture?igsh=azJ4am5vMHlpNWQw" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition group">
               <FaInstagram size={18} className="text-gray-400 group-hover:text-white transition" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition group">
-              <FaFacebook size={18} className="text-gray-400 group-hover:text-white transition" />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition group">
+            <a href="https://wa.me/916364208033" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition group">
               <FaWhatsapp size={18} className="text-gray-400 group-hover:text-white transition" />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition group">
-              <FaTwitter size={18} className="text-gray-400 group-hover:text-white transition" />
             </a>
           </div>
         </div>

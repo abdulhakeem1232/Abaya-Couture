@@ -51,8 +51,13 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-100 via-stone-50 to-amber-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-stone-100 via-stone-50 to-amber-50 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
+        <div className="mb-8 flex justify-center md:justify-start">
+          <a href="/" className="text-gray-500 hover:text-gray-800 transition flex items-center gap-2 text-sm font-medium bg-white/60 px-4 py-2 rounded-full shadow-sm border border-gray-200 backdrop-blur-md">
+            &larr; Back to Site
+          </a>
+        </div>
         {/* Logo */}
         <div className="text-center mb-10">
           <h1 className="text-3xl font-serif font-bold text-primary tracking-wide">Abaya Couture</h1>
@@ -110,6 +115,7 @@ export default function AdminLoginPage() {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition"
+                  suppressHydrationWarning
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
@@ -120,6 +126,7 @@ export default function AdminLoginPage() {
               type="submit"
               disabled={loading}
               className="w-full bg-primary hover:bg-primary-hover disabled:opacity-60 text-white py-3.5 rounded-xl transition duration-300 font-medium text-sm tracking-wide mt-2"
+              suppressHydrationWarning
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">

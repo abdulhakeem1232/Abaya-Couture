@@ -50,7 +50,7 @@ export default function ProductForm({ initialData = null }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6 max-w-2xl mx-auto">
+    <form onSubmit={handleSubmit} className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6 max-w-2xl mx-auto">
       <div className="border-b border-gray-100 pb-4 mb-2">
         <h2 className="text-xl font-serif font-bold text-accent">
           {initialData ? "Edit Product" : "Add New Product"}
@@ -65,7 +65,7 @@ export default function ProductForm({ initialData = null }) {
         <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
         <textarea name="description" defaultValue={initialData?.description} required rows="4" className="w-full px-4 py-2 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Describe the fabric, design, etc." />
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Price (₹)</label>
           <input name="price" type="number" step="1" min="0" defaultValue={initialData?.price} required className="w-full px-4 py-2 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="0" />
@@ -88,7 +88,7 @@ export default function ProductForm({ initialData = null }) {
         <label className="block text-sm font-medium text-gray-700 mb-2">Product Images</label>
         
         {existingImages.length > 0 && (
-          <div className="grid grid-cols-4 gap-3 mb-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
             {existingImages.map((img, index) => (
               <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-gray-100 group">
                 <img src={img} alt="Product" className="w-full h-full object-cover" />
